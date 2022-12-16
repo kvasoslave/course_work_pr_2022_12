@@ -47,7 +47,8 @@ void init_Sentence(Sentence* sentence, wchar_t* str)
 		{
 			sentence->words = realloc(sentence->words, sizeof(wchar_t*) * (sentence->length + BUFF_WORD));
 		}
-		sentence->words[sentence->length] = word;
+		sentence->words[sentence->length] = malloc(sizeof(wchar_t) * (wcslen(word) + 1));
+		wcscpy(sentence->words[sentence->length], word);
 		sentence->length++;
 		word = wcstok(NULL, L", ", &wcstok_ptr);
 	}
@@ -83,7 +84,7 @@ void read_Text(Text* text)
 		text->tail = newsentence;
 		sentence = wcstok(NULL, L".", &wcstok_ptr);
 	} 
-	//free(buffer);
+	free(buffer);
 }
 
 void print_Text(Text* text)
