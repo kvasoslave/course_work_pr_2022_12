@@ -66,7 +66,7 @@ void read_Text(Text* text)
 	} while (*(buffer + wcslen(buffer) - 1) != '\n');
 	wchar_t* sentence;
 	wchar_t* wcstok_ptr;
-	sentence = wcstok(buffer, L".", &wcstok_ptr);
+	sentence = wcstok(buffer, L".\n", &wcstok_ptr);
 	while (sentence != NULL)
 	{
 		Sentence* newsentence = malloc(sizeof(Sentence));
@@ -82,7 +82,7 @@ void read_Text(Text* text)
 			text->head = newsentence;
 		}
 		text->tail = newsentence;
-		sentence = wcstok(NULL, L".", &wcstok_ptr);
+		sentence = wcstok(NULL, L".\n", &wcstok_ptr);
 	} 
 	free(buffer);
 }
@@ -96,16 +96,39 @@ void print_Text(Text* text)
 		{
 			printf("%ls ", *(current->words + i));
 		}
-		printf("%ls\n", *(current->words + current->length - 1));
+		printf("%ls.\n", *(current->words + current->length - 1));
 		current = current->next;
+ 	}
+}
+
+void clear_Text(Text* text)
+{
+	Sentence* current = text->head;
+	while (current->next != NULL)
+	{
+		for (int i = 0; i < current->length; i++)
+		{
+			free(current->words[i]);
+		}
+		free(current->words);
+		current = current->next;
+		free(current->prev);
 	}
+	for (int i = 0; i < current->length; i++)
+	{
+		free(current->words[i]);
+	}
+	free(current->words);
+	free(current);
+	free(text);
 }
 
 int main()
 {
-	setlocale(LC_CTYPE, LOCALE);
-	Text data;
-	init_Text(&data);
-	read_Text(&data);
-	print_Text(&data);
+	//setlocale(LC_CTYPE, LOCALE);
+	Text* data = malloc(sizeof(Text));
+	init_Text(data);
+	read_Text(data);
+	print_Text(data);
+	clear_Text(data);
 }
