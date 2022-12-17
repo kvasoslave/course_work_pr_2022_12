@@ -22,14 +22,12 @@ typedef struct
 {
 	Sentence* head;
 	Sentence* tail;
-	unsigned length;
 } Text;
 
 void init_Text(Text* text)
 {
 	text->head = NULL;
 	text->tail = NULL;
-	text->length = 0;
 }
 
 void init_Sentence(Sentence* sentence, wchar_t* str)
@@ -101,34 +99,45 @@ void print_Text(Text* text)
  	}
 }
 
+void remove_Sentence(Sentence* sentence, Text* text)
+{
+	for (int i = 0; i < sentence->length; i++)
+	{
+		free(sentence->words[i]);
+	}
+	free(sentence->words);
+	if (sentence->prev != NULL)
+	{
+		sentence->prev->next = sentence->next;
+	}
+	else
+	{
+		text->head = sentence->next;
+	}
+	if (sentence->next != NULL)
+	{
+		sentence->next->prev = sentence->prev;
+	}
+	else
+	{
+		text->tail = sentence->prev;
+	}
+	free(sentence);
+}
+
 void clear_Text(Text* text)
 {
-	Sentence* current = text->head;
-	while (current->next != NULL)
+	while (text->head != 0)
 	{
-		for (int i = 0; i < current->length; i++)
-		{
-			free(current->words[i]);
-		}
-		free(current->words);
-		current = current->next;
-		free(current->prev);
+		remove_Sentence(text->head, text);
 	}
-	for (int i = 0; i < current->length; i++)
-	{
-		free(current->words[i]);
-	}
-	free(current->words);
-	free(current);
 	free(text);
 }
 
 int main()
 {
-	//setlocale(LC_CTYPE, LOCALE);
+	setlocale(LC_CTYPE, LOCALE);
 	Text* data = malloc(sizeof(Text));
 	init_Text(data);
 	read_Text(data);
-	print_Text(data);
-	clear_Text(data);
 }
