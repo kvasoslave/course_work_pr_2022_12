@@ -18,5 +18,13 @@
     <ClCompile Include="main.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="texttools.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="texttools.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
