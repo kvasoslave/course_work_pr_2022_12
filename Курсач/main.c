@@ -11,7 +11,30 @@
 #define BUFF_ELEM 10
 #define LOCALE "ru-RU.cp1251"
 
+int check_for_capitals(Sentence* sentence)
+{
+	for (int i = 0; i < sentence->length; i++)
+	{
+		if (!iswupper(sentence->words[i][0]))
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
 
+
+void remove_uncapitalized_sentences(Text* text)
+{
+	for (int i = 0; i < text->length; i++)
+	{
+		if (check_for_capitals(text->sentences[i]))
+		{
+			remove_Sentence(text, i);
+			i--;
+		}
+	}
+}
 
 int main()
 {
@@ -20,18 +43,7 @@ int main()
 	init_Text(data);
 	read_Text(data);
 	print_Text(data);
-	for (int i = 0; i < data->length; i++)
-	{
-		for (int j = 0; j < data->sentences[i]->length; j++)
-		{
-			if (!wcscmp(data->sentences[i]->words[j], L"ass"))
-			{
-				remove_Sentence(data, i);
-				i--;
-				break;
-			}
-		}
-	}
+	remove_uncapitalized_sentences(data);
 	print_Text(data);
 	free_Text(data);
 }
