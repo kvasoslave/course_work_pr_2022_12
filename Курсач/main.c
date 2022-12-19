@@ -7,33 +7,29 @@
 #include <locale.h>
 
 #define BUFF_STR 100
-#define BUFF_WORD 10
+#define BUFF_ELEM 10
 #define LOCALE "ru-RU.cp1251"
 
 typedef struct _Sentence
 {
-	struct _Sentence* prev;
-	struct _Sentence* next;
 	wchar_t** words;
 	unsigned length;
 } Sentence;
 
-typedef struct 
+typedef struct
 {
-	Sentence* head;
-	Sentence* tail;
+	Sentence** sentences;
+	unsigned length;
 } Text;
 
 void init_Text(Text* text)
 {
-	text->head = NULL;
-	text->tail = NULL;
+	text->sentences = NULL;
+	text->length = 0;
 }
 
 void init_Sentence(Sentence* sentence, wchar_t* str)
 {
-	sentence->next = NULL;
-	sentence->prev = NULL;
 	sentence->words = NULL;
 	sentence->length = 0;
 	wchar_t* word;
@@ -43,7 +39,7 @@ void init_Sentence(Sentence* sentence, wchar_t* str)
 	{
 		if (!(sentence->length % 5))
 		{
-			sentence->words = realloc(sentence->words, sizeof(wchar_t*) * (sentence->length + BUFF_WORD));
+			sentence->words = realloc(sentence->words, sizeof(wchar_t*) * (sentence->length + BUFF_ELEM));
 		}
 		sentence->words[sentence->length] = malloc(sizeof(wchar_t) * (wcslen(word) + 1));
 		wcscpy(sentence->words[sentence->length], word);
@@ -69,68 +65,55 @@ void read_Text(Text* text)
 	{
 		Sentence* newsentence = malloc(sizeof(Sentence));
 		init_Sentence(newsentence, sentence);
-		if (text->head != NULL)
+		if (!(text->length % 5))
 		{
-			text->tail->next = newsentence;
-			newsentence->prev = text->tail;
-			
+			text->sentences = realloc(text->sentences, sizeof(Sentence*) * (BUFF_ELEM + text->length));
 		}
-		else
-		{
-			text->head = newsentence;
-		}
-		text->tail = newsentence;
+		*(text->sentences + text->length) = newsentence;
+		text->length++;
 		sentence = wcstok(NULL, L".\n", &wcstok_ptr);
-	} 
+	}
 	free(buffer);
 }
 
 void print_Text(Text* text)
 {
-	Sentence* current = text->head;
-	while (current != NULL)
+	Sentence* current = NULL;
+	for (int i = 0; i < text->length; i++)
 	{
+		current = text->sentences[i];
 		for (int i = 0; i < current->length - 1; i++)
 		{
 			printf("%ls ", *(current->words + i));
 		}
 		printf("%ls.\n", *(current->words + current->length - 1));
-		current = current->next;
- 	}
+	}
 }
 
-void remove_Sentence(Sentence* sentence, Text* text)
+void free_Sentence(Sentence* sentence)
 {
 	for (int i = 0; i < sentence->length; i++)
 	{
 		free(sentence->words[i]);
 	}
 	free(sentence->words);
-	if (sentence->prev != NULL)
-	{
-		sentence->prev->next = sentence->next;
-	}
-	else
-	{
-		text->head = sentence->next;
-	}
-	if (sentence->next != NULL)
-	{
-		sentence->next->prev = sentence->prev;
-	}
-	else
-	{
-		text->tail = sentence->prev;
-	}
 	free(sentence);
 }
 
-void clear_Text(Text* text)
+void remove_Sentence(Text* text, int index)
 {
-	while (text->head != 0)
+	free_Sentence(text->sentences[index]);
+	memmove(text->sentences + index, text->sentences + index + 1, sizeof(Sentence*) * (text->length - index - 1));
+	text->length--;
+}
+
+void free_Text(Text* text)
+{
+	for (int i = 0; i < text->length; i++)
 	{
-		remove_Sentence(text->head, text);
+		free_Sentence(text->sentences[i]);
 	}
+	free(text->sentences);
 	free(text);
 }
 
@@ -140,4 +123,19 @@ int main()
 	Text* data = malloc(sizeof(Text));
 	init_Text(data);
 	read_Text(data);
+	print_Text(data);
+	for (int i = 0; i < data->length; i++)
+	{
+		for (int j = 0; j < data->sentences[i]->length; j++)
+		{
+			if (!wcscmp(data->sentences[i]->words[j], L"ass"))
+			{
+				remove_Sentence(data, i);
+				i--;
+				break;
+			}
+		}
+	}
+	print_Text(data);
+	free_Text(data);
 }
