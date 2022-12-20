@@ -9,7 +9,7 @@
 
 #define BUFF_STR 100
 #define BUFF_ELEM 10
-#define LOCALE "ru-RU.cp1251"
+#define LOCALE ".1251"
 
 int check_for_capitals(Sentence* sentence)
 {
@@ -38,12 +38,14 @@ void remove_uncapitalized_sentences(Text* text)
 
 int main()
 {
+	system("chcp 1251");
 	setlocale(LC_CTYPE, LOCALE);
 	Text* data = malloc(sizeof(Text));
 	init_Text(data);
 	read_Text(data);
 	print_Text(data);
 	remove_uncapitalized_sentences(data);
+	puts("\\------------------------\\");
 	print_Text(data);
 	free_Text(data);
 }
