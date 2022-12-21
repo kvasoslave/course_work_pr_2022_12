@@ -131,11 +131,13 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="maskfinder.c" />
     <ClCompile Include="remove_uncapitalized.c" />
+    <ClCompile Include="sort_sent.c" />
     <ClCompile Include="texttools.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="maskfinder.h" />
     <ClInclude Include="remove_uncapitalized.h" />
+    <ClInclude Include="sort_sent.h" />
     <ClInclude Include="texttools.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
