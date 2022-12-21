@@ -6,7 +6,7 @@ void init_Text(Text* text)
 	text->length = 0;
 }
 
-void init_Sentence(Sentence* sentence, wchar_t* str)
+int init_Sentence(Sentence* sentence, wchar_t* str)
 {
 	sentence->words = NULL;
 	sentence->length = 0;
@@ -24,6 +24,7 @@ void init_Sentence(Sentence* sentence, wchar_t* str)
 		sentence->length++;
 		word = wcstok(NULL, L", ", &wcstok_ptr);
 	}
+	return sentence->length;
 }
 
 void read_Text(Text* text)
@@ -42,13 +43,15 @@ void read_Text(Text* text)
 	while (sentence != NULL)
 	{
 		Sentence* newsentence = malloc(sizeof(Sentence));
-		init_Sentence(newsentence, sentence);
-		if (!(text->length % 5))
+		if (init_Sentence(newsentence, sentence))
 		{
-			text->sentences = realloc(text->sentences, sizeof(Sentence*) * (BUFF_ELEM + text->length));
+			if (!(text->length % 5))
+			{
+				text->sentences = realloc(text->sentences, sizeof(Sentence*) * (BUFF_ELEM + text->length));
+			}
+			*(text->sentences + text->length) = newsentence;
+			text->length++;
 		}
-		*(text->sentences + text->length) = newsentence;
-		text->length++;
 		sentence = wcstok(NULL, L".\n", &wcstok_ptr);
 	}
 	free(buffer);

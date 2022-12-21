@@ -25,7 +25,7 @@ typedef struct _Text
 
 void init_Text(Text* text);
 
-void init_Sentence(Sentence* sentence, wchar_t* str);
+int init_Sentence(Sentence* sentence, wchar_t* str);
 
 void read_Text(Text* text);
 
