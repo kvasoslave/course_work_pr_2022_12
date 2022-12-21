@@ -34,7 +34,7 @@ int find_best_pos(wchar_t** first_ptr, wchar_t** second_ptr)
 
 wchar_t* find_mask(wchar_t** first_ptr, wchar_t** second_ptr)
 {
-	char begins_with_asterisk = (*first_ptr)[0] == L'*', ends_with_asterisk = L'*' == (*first_ptr)[wcslen(*first_ptr) - 1];
+	int begins_with_asterisk = (*first_ptr)[0] == L'*', ends_with_asterisk = L'*' == (*first_ptr)[wcslen(*first_ptr) - 1];
 	if (begins_with_asterisk)
 		memmove(*first_ptr, *first_ptr + 1, sizeof(wchar_t) * wcslen(*first_ptr));
 	if (ends_with_asterisk)
