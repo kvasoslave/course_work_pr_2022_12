@@ -21,9 +21,15 @@
     <ClCompile Include="texttools.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="remove_uncapitalized.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texttools.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="remove_uncapitalized.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

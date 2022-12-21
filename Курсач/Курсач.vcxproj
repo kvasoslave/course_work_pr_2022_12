@@ -129,9 +129,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="remove_uncapitalized.c" />
     <ClCompile Include="texttools.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="remove_uncapitalized.h" />
     <ClInclude Include="texttools.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
