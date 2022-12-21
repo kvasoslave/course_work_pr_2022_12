@@ -16,7 +16,6 @@
 
 int main()
 {
-	printf("init\n");
 	system("chcp 1251");
 	setlocale(LC_CTYPE, LOCALE);
 	Text* data = malloc(sizeof(Text));
