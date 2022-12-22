@@ -1,4 +1,4 @@
-#include "remove_uncapitalized.h"
+#include "removeuncapitalized.h"
 
 int check_for_capitals(Sentence* sentence)
 {

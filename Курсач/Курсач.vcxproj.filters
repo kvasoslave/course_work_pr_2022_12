@@ -21,13 +21,19 @@
     <ClCompile Include="texttools.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="remove_uncapitalized.c">
+    <ClCompile Include="removeuncapitalized.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="maskfinder.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="sort_sent.c">
+    <ClCompile Include="sortsent.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="samewords.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="windowsrun.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,13 +41,19 @@
     <ClInclude Include="texttools.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="remove_uncapitalized.h">
+    <ClInclude Include="removeuncapitalized.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="maskfinder.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="sort_sent.h">
+    <ClInclude Include="sortsent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="samewords.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="windowsrun.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

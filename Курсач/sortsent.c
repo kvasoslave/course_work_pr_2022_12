@@ -1,4 +1,4 @@
-#include "sort_sent.h"
+#include "sortsent.h"
 
 const wchar_t vovels[] = L"aAeEiIoOuUyYàÀèÈåÅ¸¨îÎóÓûÛıİşŞÿß";
 

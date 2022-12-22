@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
-#ifndef TEXTTOOLS_INCLUDED
-#define TEXTTOOLS_INCLUDED
+#ifndef TEXT_TOOLS_INCLUDED
+#define TEXT_TOOLS_INCLUDED
 #include <stdlib.h>
 #include <stdio.h>
 #include <wchar.h>
@@ -36,5 +36,4 @@ void free_Sentence(Sentence* sentence);
 void remove_Sentence(Text* text, int index);
 
 void free_Text(Text* text);
-
 #endif

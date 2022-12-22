@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #ifndef MASK_FINDER_INCLUDED
 #define MASK_FINDER_INCLUDED
-#include <stdlib.h>
 #include <stdio.h>
 #include <wchar.h>
 #include <wctype.h>

@@ -130,15 +130,19 @@
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="maskfinder.c" />
-    <ClCompile Include="remove_uncapitalized.c" />
-    <ClCompile Include="sort_sent.c" />
+    <ClCompile Include="removeuncapitalized.c" />
+    <ClCompile Include="samewords.c" />
+    <ClCompile Include="sortsent.c" />
     <ClCompile Include="texttools.c" />
+    <ClCompile Include="windowsrun.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="maskfinder.h" />
-    <ClInclude Include="remove_uncapitalized.h" />
-    <ClInclude Include="sort_sent.h" />
+    <ClInclude Include="removeuncapitalized.h" />
+    <ClInclude Include="samewords.h" />
+    <ClInclude Include="sortsent.h" />
     <ClInclude Include="texttools.h" />
+    <ClInclude Include="windowsrun.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
