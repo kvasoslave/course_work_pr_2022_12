@@ -29,7 +29,11 @@ int init_Sentence(Sentence* sentence, wchar_t* str);
 
 void read_Text(Text* text);
 
+void print_sentence(Sentence* sentence);
+
 void print_Text(Text* text);
+
+void print_enum_Text(Text* text);
 
 void free_Sentence(Sentence* sentence);
 

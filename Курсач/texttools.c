@@ -57,17 +57,33 @@ void read_Text(Text* text)
 	free(buffer);
 }
 
+void print_sentence(Sentence* sentence)
+{
+	for (int i = 0; i < sentence->length - 1; i++)
+	{
+		printf("%ls ", sentence->words[i]);
+	}
+	printf("%ls.\n", sentence->words[sentence->length - 1]);
+}
+
+void print_enum_Text(Text* text)
+{
+	Sentence* current = NULL;
+	for (int i = 0; i < text->length; i++)
+	{
+		printf("%d: ", i);
+		current = text->sentences[i];
+		print_sentence(current);
+	}
+}
+
 void print_Text(Text* text)
 {
 	Sentence* current = NULL;
 	for (int i = 0; i < text->length; i++)
 	{
 		current = text->sentences[i];
-		for (int i = 0; i < current->length - 1; i++)
-		{
-			printf("%ls ", *(current->words + i));
-		}
-		printf("%ls.\n", *(current->words + current->length - 1));
+		print_sentence(current);
 	}
 }
 
