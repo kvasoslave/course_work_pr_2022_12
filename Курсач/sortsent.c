@@ -44,7 +44,7 @@ void sort_sentence(Sentence* sentence)
 void sort_selected_sentence(Text* text, int ind)
 {
 	if (ind < 0 || ind >= text->length)
-		printf("Error: Text index out of range\n");
+		fputws("Error: Text index out of range\n", stdout);
 	else
 	{
 		sort_sentence(text->sentences[ind]);
