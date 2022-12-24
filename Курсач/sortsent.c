@@ -1,6 +1,6 @@
 #include "sortsent.h"
 
-const wchar_t vovels[] = L"aAeEiIoOuUyYĞ°ĞĞ¸Ğ˜ĞµĞ•Ñ‘ĞĞ¾ĞÑƒĞ£Ñ‹Ğ«ÑĞ­ÑĞ®ÑĞ¯";
+const wchar_t vovels[] = L"aAeEiIoOuUyYàÀèÈåÅ¸¨îÎóÓûÛıİşŞÿß";
 
 int iswvovel(wchar_t symbol)
 {

@@ -3,7 +3,7 @@
 
 void set_environment()
 {
-	system("");
-	system("clear");
+	system("chcp 1251");
+	system(CLEAR_SCREEN);
 	setlocale(LC_CTYPE, LOCALE);
 }

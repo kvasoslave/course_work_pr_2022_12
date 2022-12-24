@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <locale.h>
 
-#define LOCALE ""
-#define CLEAR_SCREEN "clear"
+#define LOCALE ".1251"
+#define CLEAR_SCREEN "cls"
 
 void set_environment();
 
