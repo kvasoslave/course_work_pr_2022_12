@@ -95,6 +95,8 @@ void read_Text(Text* text)
 				text->sentences[text->length] = newsentence;
 				text->length++;
 			}
+			else
+				free_Sentence(newsentence);
 
 		}
 		sentence = wcstok(NULL, L".\n", &wcstok_ptr);
