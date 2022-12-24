@@ -7,9 +7,6 @@
 #include "linuxrun.h"
 #include "samewords.h"
 
-#define BUFF_STR 100
-#define BUFF_ELEM 10
-
 void print_menu()
 {
 	fputws(L"Выберите функцию\n", stdout);
@@ -42,7 +39,6 @@ int main()
 	read_Text(txtdata);
 	system(CLEAR_SCREEN);
 	fputws(L"Текст успешно прочитан.\n", stdout);
-	fputws(L"Для продолжения нажмите Enter...\n", stdout);
 	int exit = 1;
 	wchar_t mode;
 	do
