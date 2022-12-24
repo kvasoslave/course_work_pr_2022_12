@@ -42,12 +42,13 @@ void read_Text(Text* text)
 	wchar_t** uniques = NULL;
 	char isunique;
 	sentence = wcstok(buffer, L".\n", &wcstok_ptr);
-	int sentence_len = wcslen(sentence);
+	int sentence_len;
 	while (sentence != NULL)
 	{
 		isunique = 1;
 		while (iswspace(*sentence))
 			sentence++;
+		sentence_len = wcslen(sentence);
 		for (int i = 0; i < text->length; i++)
 		{
 			if (!wcscasecmp(uniques[i], sentence))
