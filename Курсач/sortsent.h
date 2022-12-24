@@ -15,7 +15,7 @@ int iswvovel(wchar_t symbol);
 
 int vovelcount(void* str_v);
 
-int cmp_words(void** first, void** second);
+int cmp_words(const void* first, const void* second);
 
 void sort_sentence(Sentence* sentence);
 
