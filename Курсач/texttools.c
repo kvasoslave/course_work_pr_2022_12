@@ -39,52 +39,46 @@ void read_Text(Text* text)
 	} while (*(buffer + wcslen(buffer) - 1) != '\n');
 	wchar_t* sentence;
 	wchar_t* wcstok_ptr;
-	wchar_t** uniques = NULL;
 	char isunique;
 	sentence = wcstok(buffer, L".\n", &wcstok_ptr);
-	int sentence_len;
 	while (sentence != NULL)
 	{
-		isunique = 1;
-		while (iswspace(*sentence))
-			sentence++;
-		sentence_len = wcslen(sentence);
-		for (int i = 0; i < text->length; i++)
+		Sentence* newsentence = malloc(sizeof(Sentence));
+		if (init_Sentence(newsentence, sentence))
 		{
-			if (!wcscasecmp(uniques[i], sentence))
+			isunique = 1;
+			for (int i = 0; i < text->length; i++)
 			{
-				isunique = 0;
-				break;
+				int samesent = 1;
+				for (int j = 0; j < newsentence->length; j++)
+				{
+					if (wcscasecmp(text->sentences[i]->words[j], newsentence->words[j]))
+					{
+						samesent = 0;
+						break;
+					}
+				}
+				if (samesent)
+				{
+					isunique = 0;
+					break;
+				}
 			}
-		}
-		if (isunique)
-		{
-			Sentence* newsentence = malloc(sizeof(Sentence));
-			if (init_Sentence(newsentence, sentence))
+			if (isunique || !text->length)
 			{
 				if (!(text->length % 5))
 				{
-					uniques = realloc(uniques, sizeof(Sentence*) * (BUFF_ELEM + text->length));
 					text->sentences = realloc(text->sentences, sizeof(Sentence*) * (BUFF_ELEM + text->length));
 				}
 				text->sentences[text->length] = newsentence;
-				for (int i = 0; i < sentence_len; i++)
-				{
-					if (!sentence[i])
-						sentence[i] = L' ';
-				}
-				uniques[text->length] = calloc(sentence_len + 1, sizeof(wchar_t*));
-				memcpy(uniques[text->length], sentence, sentence_len * sizeof(wchar_t));
 				text->length++;
 			}
+			else
+				free_Sentence(newsentence);	
+
 		}
 		sentence = wcstok(NULL, L".\n", &wcstok_ptr);
 	}
-	for (int i = 0; i < text->length; i++)
-	{
-		free(uniques[i]);
-	}
-	free(uniques);
 	free(buffer);
 }
 
