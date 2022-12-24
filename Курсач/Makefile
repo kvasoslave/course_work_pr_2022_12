@@ -18,7 +18,7 @@ samewords.o: samewords.c samewords.h
 removeuncapitalized.o: removeuncapitalized.c removeuncapitalized.h
 	gcc -c removeuncapitalized.c
 
-maskfinder.o: maskfinder.c maskfinder.o
+maskfinder.o: maskfinder.c maskfinder.h
 	gcc -c maskfinder.c
 
 linuxrun.o: linuxrun.c linuxrun.h

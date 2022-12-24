@@ -90,7 +90,7 @@ wchar_t* find_mask(wchar_t** first_ptr, wchar_t** second_ptr)
 void print_sentence_mask(Sentence* sentence)
 {
 	if (sentence->length == 1)
-		printf(sentence->words[0]);
+		printf("%ls\n", sentence->words[0]);
 	else if (sentence->length == 2)
 	{
 		wchar_t* mask = find_mask(&sentence->words[0], &sentence->words[1]);
