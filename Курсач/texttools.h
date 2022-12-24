@@ -23,6 +23,8 @@ typedef struct _Text
 	unsigned length;
 } Text;
 
+int wcscasecmp(const wchar_t* s1, const wchar_t* s2);
+
 void init_Text(Text* text);
 
 int init_Sentence(Sentence* sentence, wchar_t* str);
