@@ -111,11 +111,12 @@ void read_Text(Text* text)
 
 void print_sentence(Sentence* sentence)
 {
-	for (int i = 0; i < sentence->length; i++)
+	for (int i = 0; i < sentence->length - 1; i++)
 	{
 		fputws(sentence->words[i], stdout);
 		putwchar(L' ');
 	}
+	fputws(sentence->words[sentence->length - 1], stdout);
 	putwchar(L'.');
 	putwchar(L'\n');
 }
@@ -125,7 +126,7 @@ void print_enum_Text(Text* text)
 	Sentence* current = NULL;
 	for (int i = 0; i < text->length; i++)
 	{
-		printf("%d: ", i);
+		wprintf(L"%d: ", i);
 		current = text->sentences[i];
 		print_sentence(current);
 	}
