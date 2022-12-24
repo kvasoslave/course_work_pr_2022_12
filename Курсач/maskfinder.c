@@ -92,13 +92,13 @@ void print_sentence_mask(Sentence* sentence)
 	if (sentence->length == 1)
 	{
 		fputws(sentence->words[0], stdout);
-		putwchar(L"\n");
+		putwchar(L'\n');
 	}
 	else if (sentence->length == 2)
 	{
 		wchar_t* mask = find_mask(&sentence->words[0], &sentence->words[1]);
 		fputws(mask, stdout);
-		putwchar(L"\n");
+		putwchar(L'\n');
 		free(mask);
 	}
 	else
@@ -112,7 +112,7 @@ void print_sentence_mask(Sentence* sentence)
 			oldmask = mask;
 		}
 		fputws(mask, stdout);
-		putwchar(L"\n");
+		putwchar(L'\n');
 		free(mask);
 	}
 }

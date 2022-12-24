@@ -114,10 +114,10 @@ void print_sentence(Sentence* sentence)
 	for (int i = 0; i < sentence->length - 1; i++)
 	{
 		fputws(sentence->words[i], stdout);
-		putwchar(L" ");
+		putwchar(L' ');
 	}
 	fputws(sentence->words[sentence->length - 1], stdout);
-	putwchar(L" ");
+	putwchar(L'\n');
 }
 
 void print_enum_Text(Text* text)
