@@ -1,27 +1,5 @@
 #include "texttools.h"
 
-//non-gcc only
-
-int wcscasecmp(const wchar_t* s1, const wchar_t* s2)
-{
-	wchar_t c1, c2;
-
-	if (s1 == s2)
-		return 0;
-
-	do
-	{
-		c1 = towlower(*s1++);
-		c2 = towlower(*s2++);
-		if (c1 == L'\0')
-			break;
-	} while (c1 == c2);
-
-	return c1 - c2;
-}
-
-//remove the above function when using gcc
-
 void init_Text(Text* text)
 {
 	text->sentences = NULL;
