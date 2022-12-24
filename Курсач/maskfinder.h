@@ -7,6 +7,8 @@
 #include <string.h>
 #include "texttools.h"
 
+#define max(x, y) (((x) < (y)) ? (y) : (x)) 
+#define min(x, y) (((x) < (y)) ? (x) : (y)) 
 
 int find_best_pos(wchar_t** first_ptr, wchar_t** second_ptr);
 

@@ -1,6 +1,6 @@
 #include "sortsent.h"
 
-const wchar_t vovels[] = L"aAeEiIoOuUyYàÀèÈåÅ¸¨îÎóÓûÛýÝþÞÿß";
+const wchar_t vovels[] = L"aAeEiIoOuUyYÐ°ÐÐ¸Ð˜ÐµÐ•Ñ‘ÐÐ¾ÐžÑƒÐ£Ñ‹Ð«ÑÐ­ÑŽÐ®ÑÐ¯";
 
 int iswvovel(wchar_t symbol)
 {
@@ -24,10 +24,10 @@ int vovelcount(void* str_v)
 	return count;
 }
 
-int cmp_words(void** first, void** second)
+int cmp_words(const void* first, const void* second)
 {
-
-	int first_c = vovelcount(*first), second_c = vovelcount(*second);
+	
+	int first_c = vovelcount(*(void**)first), second_c = vovelcount(*(void**)second);
 	if (first_c == second_c)
 		return 0;
 	else if (first_c > second_c)
@@ -44,7 +44,7 @@ void sort_sentence(Sentence* sentence)
 void sort_selected_sentence(Text* text, int ind)
 {
 	if (ind < 0 || ind >= text->length)
-		fputws("Error: Text index out of range\n", stdout);
+		fputws(L"Error: Text index out of range\n", stdout);
 	else
 	{
 		sort_sentence(text->sentences[ind]);
