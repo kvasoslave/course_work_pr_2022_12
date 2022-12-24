@@ -44,6 +44,6 @@ void print_same_words_count(Text* text)
 {
 	for (int i = 0; i < text->length; i++)
 	{
-		printf("%d\n", same_words_count(text->sentences[i]));
+		wprintf(L"%d: %d\n",i,  same_words_count(text->sentences[i]));
 	}
 }

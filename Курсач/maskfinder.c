@@ -90,11 +90,15 @@ wchar_t* find_mask(wchar_t** first_ptr, wchar_t** second_ptr)
 void print_sentence_mask(Sentence* sentence)
 {
 	if (sentence->length == 1)
-		printf("%ls\n", sentence->words[0]);
+	{
+		fputws(sentence->words[0], stdout);
+		putwchar(L'\n');
+	}
 	else if (sentence->length == 2)
 	{
 		wchar_t* mask = find_mask(&sentence->words[0], &sentence->words[1]);
-		printf("%ls\n", mask);
+		fputws(mask, stdout);
+		putwchar(L'\n');
 		free(mask);
 	}
 	else
@@ -107,7 +111,8 @@ void print_sentence_mask(Sentence* sentence)
 			free(oldmask);
 			oldmask = mask;
 		}
-		printf("%ls\n", mask);
+		fputws(mask, stdout);
+		putwchar(L'\n');
 		free(mask);
 	}
 }

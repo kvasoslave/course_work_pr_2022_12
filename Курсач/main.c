@@ -12,25 +12,25 @@
 
 void print_menu()
 {
-	fputws(L"Выберите функцию\n", stdout);
-	fputws(L"1: Вывести строку образец для каждого предложения\n", stdout);
-	fputws(L"2: Удалить все предложения, в которых нет заглавных букв в начале слов\n", stdout);
-	fputws(L"3: Отсортировать слова в предложении по количеству гласных букв в слове\n", stdout);
-	fputws(L"4: Для каждого предложения вывести количество одинаковых слов в строке\n", stdout);
-	fputws(L"5: Вывести текст на экран\n", stdout);
-	fputws(L"Для выхода из программы введите 0\n", stdout);
+	fputws(L"Р’С‹Р±РµСЂРёС‚Рµ С„СѓРЅРєС†РёСЋ\n", stdout);
+	fputws(L"1: Р’С‹РІРµСЃС‚Рё СЃС‚СЂРѕРєСѓ РѕР±СЂР°Р·РµС† РґР»СЏ РєР°Р¶РґРѕРіРѕ РїСЂРµРґР»РѕР¶РµРЅРёСЏ\n", stdout);
+	fputws(L"2: РЈРґР°Р»РёС‚СЊ РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ, РІ РєРѕС‚РѕСЂС‹С… РЅРµС‚ Р·Р°РіР»Р°РІРЅС‹С… Р±СѓРєРІ РІ РЅР°С‡Р°Р»Рµ СЃР»РѕРІ\n", stdout);
+	fputws(L"3: РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ СЃР»РѕРІР° РІ РїСЂРµРґР»РѕР¶РµРЅРёРё РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РіР»Р°СЃРЅС‹С… Р±СѓРєРІ РІ СЃР»РѕРІРµ\n", stdout);
+	fputws(L"4: Р”Р»СЏ РєР°Р¶РґРѕРіРѕ РїСЂРµРґР»РѕР¶РµРЅРёСЏ РІС‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РѕРґРёРЅР°РєРѕРІС‹С… СЃР»РѕРІ РІ СЃС‚СЂРѕРєРµ\n", stdout);
+	fputws(L"5: Р’С‹РІРµСЃС‚Рё С‚РµРєСЃС‚ РЅР° СЌРєСЂР°РЅ\n", stdout);
+	fputws(L"Р”Р»СЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹ РІРІРµРґРёС‚Рµ 0\n", stdout);
 }
 
 
 void welcome()
 {
-	fputws(L"Курсовая работа по программированию. Вариант 3\n", stdout);
-	fputws(L"(С) Жихарев Виктор\n", stdout);
-	fputws(L"Добро Пожаловать!\n", stdout);
-	fputws(L"Для продолжения нажмите Enter...\n", stdout);
+	fputws(L"РљСѓСЂСЃРѕРІР°СЏ СЂР°Р±РѕС‚Р° РїРѕ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЋ. Р’Р°СЂРёР°РЅС‚ 3\n", stdout);
+	fputws(L"(РЎ) Р–РёС…Р°СЂРµРІ Р’РёРєС‚РѕСЂ\n", stdout);
+	fputws(L"Р”РѕР±СЂРѕ РџРѕР¶Р°Р»РѕРІР°С‚СЊ!\n", stdout);
+	fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 	getwchar();
-	system(CLEAR_SCREEN);
-	fputws(L"Введите обрабатываемый текст. Ввод текста завершается по нажатию клавиши Enter\n", stdout);
+	//system(CLEAR_SCREEN);
+	fputws(L"Р’РІРµРґРёС‚Рµ РѕР±СЂР°Р±Р°С‚С‹РІР°РµРјС‹Р№ С‚РµРєСЃС‚. Р’РІРѕРґ С‚РµРєСЃС‚Р° Р·Р°РІРµСЂС€Р°РµС‚СЃСЏ РїРѕ РЅР°Р¶Р°С‚РёСЋ РєР»Р°РІРёС€Рё Enter\n", stdout);
 }
 
 int main()
@@ -40,9 +40,9 @@ int main()
 	welcome();
 	init_Text(txtdata);
 	read_Text(txtdata);
-	system(CLEAR_SCREEN);
-	fputws(L"Текст успешно прочитан.\n", stdout);
-	fputws(L"Для продолжения нажмите Enter...\n", stdout);
+	//system(CLEAR_SCREEN);
+	fputws(L"РўРµРєСЃС‚ СѓСЃРїРµС€РЅРѕ РїСЂРѕС‡РёС‚Р°РЅ.\n", stdout);
+	fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 	int exit = 1;
 	wchar_t mode;
 	do
@@ -55,99 +55,99 @@ int main()
 		switch (mode)
 		{
 		case L'1':
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			print_text_masks(txtdata);
-			fputws(L"Для продолжения нажмите Enter...\n", stdout);
+			fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 			getwchar();
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			break;
 		case L'2':
 			remove_uncapitalized_sentences(txtdata);
-			system(CLEAR_SCREEN);
-			fputws(L"Предложения удалены. Вывести текст? (Д/Н), по умолчанию Д\n", stdout);
+			//system(CLEAR_SCREEN);
+			fputws(L"РџСЂРµРґР»РѕР¶РµРЅРёСЏ СѓРґР°Р»РµРЅС‹. Р’С‹РІРµСЃС‚Рё С‚РµРєСЃС‚? (Р”/Рќ), РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Р”\n", stdout);
 			wchar_t danet = getwchar();
 			if (danet != 10)
 				getwchar();
-			if (danet != L'Н' && danet != L'N')
+			if (danet != L'Рќ' && danet != L'N')
 			{
-				system(CLEAR_SCREEN);
+			//	system(CLEAR_SCREEN);
 				print_Text(txtdata);
-				fputws(L"Для продолжения нажмите Enter...\n", stdout);
+				fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 				getwchar();
-				system(CLEAR_SCREEN);
+			//	system(CLEAR_SCREEN);
 			}
 			else
 			{
-				system(CLEAR_SCREEN);
+			//	system(CLEAR_SCREEN);
 			}
 			break;
 		case L'3':
-			system(CLEAR_SCREEN);
-			fputws(L"Выберите предложение (введите его номер):\n", stdout);
+			//system(CLEAR_SCREEN);
+			fputws(L"Р’С‹Р±РµСЂРёС‚Рµ РїСЂРµРґР»РѕР¶РµРЅРёРµ (РІРІРµРґРёС‚Рµ РµРіРѕ РЅРѕРјРµСЂ):\n", stdout);
 			print_enum_Text(txtdata);
 			int sent_number;
-			scanf("%d", &sent_number);
+			wscanf(L"%d", &sent_number);
 			getwchar();
 			if (sent_number < 0 || sent_number >= txtdata->length)
 			{
-				printf("Ошибка: Нет предложения с таким номером\n");
-				fputws(L"Для продолжения нажмите Enter...\n", stdout);
+				fputws(L"РћС€РёР±РєР°: РќРµС‚ РїСЂРµРґР»РѕР¶РµРЅРёСЏ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј\n", stdout);
+				fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 				getwchar();
-				system(CLEAR_SCREEN);
+				//system(CLEAR_SCREEN);
 			}
 			else
 			{
 				sort_selected_sentence(txtdata, sent_number);
-				system(CLEAR_SCREEN);
-				fputws(L"Предложение отсортировано. Вывести его? (Д/Н/Т[вывести весь текст]), по умолчанию Д\n", stdout);
+				//system(CLEAR_SCREEN);
+				fputws(L"РџСЂРµРґР»РѕР¶РµРЅРёРµ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРѕ. Р’С‹РІРµСЃС‚Рё РµРіРѕ? (Р”/Рќ/Рў[РІС‹РІРµСЃС‚Рё РІРµСЃСЊ С‚РµРєСЃС‚]), РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Р”\n", stdout);
 				wchar_t danet = getwchar();
 				if (danet != 10)
 					getwchar();
-				if (danet == L'Т' || danet == L'T')
+				if (danet == L'Рў' || danet == L'T')
 				{
-					system(CLEAR_SCREEN);
+					//system(CLEAR_SCREEN);
 					print_Text(txtdata);
-					fputws(L"Для продолжения нажмите Enter...\n", stdout);
+					fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 					getwchar();
-					system(CLEAR_SCREEN);
+					//system(CLEAR_SCREEN);
 				}
-				else if (danet != L'Н' && danet != L'N')
+				else if (danet != L'Рќ' && danet != L'N')
 				{
-					system(CLEAR_SCREEN);
+					//system(CLEAR_SCREEN);
 					print_sentence(txtdata->sentences[sent_number]);
-					fputws(L"Для продолжения нажмите Enter...\n", stdout);
+					fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 					getwchar();
-					system(CLEAR_SCREEN);
+					//system(CLEAR_SCREEN);
 				}
 				else
 				{
-					system(CLEAR_SCREEN);
+					//system(CLEAR_SCREEN);
 				}
 			}
 			break;
 		case L'4':
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			print_same_words_count(txtdata);
-			fputws(L"Для продолжения нажмите Enter...\n", stdout);
+			fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 			getwchar();
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			break;
 		case L'5':
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			print_Text(txtdata);
-			fputws(L"Для продолжения нажмите Enter...\n", stdout);
+			fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 			getwchar();
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			break;
 		case L'0':
 			exit = 0;
 			break;
 		default:
-			system(CLEAR_SCREEN);
-			fputws(L"Неверная команда\n", stdout);
-			fputws(L"Для продолжения нажмите Enter...\n", stdout);
+			//system(CLEAR_SCREEN);
+			fputws(L"РќРµРІРµСЂРЅР°СЏ РєРѕРјР°РЅРґР°\n", stdout);
+			fputws(L"Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ Enter...\n", stdout);
 			getwchar();
-			system(CLEAR_SCREEN);
+			//system(CLEAR_SCREEN);
 			break;
 		}
 	} while (exit);
