@@ -6,7 +6,7 @@ build: main.o texttools.o sortsent.o samewords.o removeuncapitalized.o maskfinde
 main.o: main.c texttools.h sortsent.h samewords.h removeuncapitalized.h maskfinder.h linuxrun.h
 	gcc -c main.c
 
-texttools.o: textools.c texttools.h
+texttools.o: texttools.c texttools.h
 	gcc -c texttools.c
 
 sortsent.o: sortsent.c sortsent.h
