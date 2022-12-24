@@ -96,7 +96,7 @@ void read_Text(Text* text)
 				text->length++;
 			}
 			else
-				free_Sentence(newsentence);
+				free_Sentence(newsentence);	
 
 		}
 		sentence = wcstok(NULL, L".\n", &wcstok_ptr);
