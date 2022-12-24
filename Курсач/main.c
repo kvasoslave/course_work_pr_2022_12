@@ -39,7 +39,6 @@ int main()
 	read_Text(txtdata);
 	system(CLEAR_SCREEN);
 	fputws(L"Текст успешно прочитан.\n", stdout);
-	fputws(L"Для продолжения нажмите Enter...\n", stdout);
 	int exit = 1;
 	wchar_t mode;
 	do
