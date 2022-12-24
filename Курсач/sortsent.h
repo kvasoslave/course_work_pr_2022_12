@@ -9,7 +9,7 @@
 #include "texttools.h"
 
 
-extern const wchar_t vovels[];
+extern const wchar_t const vovels[];
 
 int iswvovel(wchar_t symbol);
 
