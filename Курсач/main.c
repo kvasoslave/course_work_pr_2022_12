@@ -90,7 +90,7 @@ int main()
 			getwchar();
 			if (sent_number < 0 || sent_number >= txtdata->length)
 			{
-				printf("Ошибка: Нет предложения с таким номером\n");
+				fputws("Ошибка: Нет предложения с таким номером\n", stdout);
 				fputws(L"Для продолжения нажмите Enter...\n", stdout);
 				getwchar();
 				//system(CLEAR_SCREEN);

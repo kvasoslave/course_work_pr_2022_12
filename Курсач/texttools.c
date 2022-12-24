@@ -113,9 +113,11 @@ void print_sentence(Sentence* sentence)
 {
 	for (int i = 0; i < sentence->length - 1; i++)
 	{
-		printf("%ls ", sentence->words[i]);
+		fputws(sentence->words[i], stdout);
+		putwchar(L" ");
 	}
-	printf("%ls.\n", sentence->words[sentence->length - 1]);
+	fputws(sentence->words[sentence->length - 1], stdout);
+	putwchar(L" ");
 }
 
 void print_enum_Text(Text* text)
