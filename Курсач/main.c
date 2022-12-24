@@ -4,7 +4,7 @@
 #include "removeuncapitalized.h"
 #include "maskfinder.h"
 #include "sortsent.h"
-#include "windowsrun.h"
+#include "linuxrun.h"
 #include "samewords.h"
 
 #define BUFF_STR 100

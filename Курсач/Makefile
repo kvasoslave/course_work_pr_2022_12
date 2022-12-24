@@ -1,9 +1,9 @@
 all: build clean
 
-build: main.o texttools.o sortsent.o samewords.o removeuncapitalized.o maskfinder.o windowsrun.o
-	gcc main.o texttools.o sortsent.o samewords.o removeuncapitalized.o maskfinder.o windowsrun.o -o course_work
+build: main.o texttools.o sortsent.o samewords.o removeuncapitalized.o maskfinder.o linuxrun.o
+	gcc main.o texttools.o sortsent.o samewords.o removeuncapitalized.o maskfinder.o linuxrun.o -o course_work
 
-main.o: main.c texttools.h sortsent.h samewords.h removeuncapitalized.h maskfinder.h windowsrun.h
+main.o: main.c texttools.h sortsent.h samewords.h removeuncapitalized.h maskfinder.h linuxrun.h
 	gcc -c main.c
 
 texttools.o: texttools.c texttools.h
@@ -21,8 +21,8 @@ removeuncapitalized.o: removeuncapitalized.c removeuncapitalized.h
 maskfinder.o: maskfinder.c maskfinder.h
 	gcc -c maskfinder.c
 
-linuxrun.o: windowsrun.c windowsrun.h
-	gcc -c windowsrun.c
+linuxrun.o: linuxrun.c linuxrun.h
+	gcc -c linuxrun.c
 
 clean:
 	rm *.o

@@ -1,5 +1,5 @@
-#ifndef WIN_RUN_INCLUDED
-#define WIN_RUN_INCLUDED
+#ifndef LINUX_RUN_INCLUDED
+#define LINUX_RUN_INCLUDED
 #include <stdlib.h>
 #include <locale.h>
 

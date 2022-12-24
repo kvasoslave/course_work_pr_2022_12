@@ -1,9 +1,8 @@
-#include "windowsrun.h"
+#include "linuxrun.h"
 
 
 void set_environment()
 {
-	system("");
-	system("clear");
+	system(CLEAR_SCREEN);
 	setlocale(LC_CTYPE, LOCALE);
 }
