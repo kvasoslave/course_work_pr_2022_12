@@ -11,21 +11,27 @@ int find_best_pos(wchar_t** first_ptr, wchar_t** second_ptr)
 	wmemset(first, L' ', secondlen - 1);
 	wmemset(first + firstlen + secondlen - 1, L' ', secondlen - 1);
 	*(first + firstlen + 2 * (secondlen - 1)) = 0;
-	int d, pos = 0, maxd = 0;
+	int sameness, pos = 0, maxsameness = 0;
+	int at_least_one_overlap = 0;
 	for (int i = 0; i < firstlen + secondlen - 1; i++)
 	{
-		d = 0;
+		sameness = 0;
 		for (int j = 0; j < secondlen; j++)
 		{
 			if (first[i + j] == second[j])
-				d++;
+			{
+				sameness++;
+				at_least_one_overlap++;
+			}
 		}
-		if (d > maxd)
+		if (sameness > maxsameness)
 		{
 			pos = i;
-			maxd = d;
+			maxsameness = sameness;
 		}
 	}
+	if (!at_least_one_overlap)
+		pos += secondlen - 1;
 	memmove(first, first + secondlen - 1, sizeof(wchar_t) * firstlen);
 	*first_ptr = realloc(*first_ptr, sizeof(wchar_t) * (firstlen + 1));
 	*(*first_ptr + firstlen) = 0;
