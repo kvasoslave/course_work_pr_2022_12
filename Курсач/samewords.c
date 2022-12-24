@@ -11,7 +11,7 @@ int same_words_count(Sentence* sentence)
 	{
 		for (int j = 0; j < unique_words_length; j++)
 		{
-			if (!wcscmp(sentence->words[i], unique_words[j]))
+			if (!wcscasecmp(sentence->words[i], unique_words[j]))
 			{
 				unique_count[j]++;
 				newword = 0;
