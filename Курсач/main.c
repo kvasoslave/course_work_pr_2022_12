@@ -153,4 +153,4 @@ int main()
 	} while (exit);
 	free_Text(txtdata);
 	return exit;
-}}
+}
