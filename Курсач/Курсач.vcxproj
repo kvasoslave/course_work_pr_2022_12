@@ -134,7 +134,7 @@
     <ClCompile Include="samewords.c" />
     <ClCompile Include="sortsent.c" />
     <ClCompile Include="texttools.c" />
-    <ClCompile Include="windowsrun.c" />
+    <ClCompile Include="linuxrun.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="maskfinder.h" />
@@ -142,7 +142,7 @@
     <ClInclude Include="samewords.h" />
     <ClInclude Include="sortsent.h" />
     <ClInclude Include="texttools.h" />
-    <ClInclude Include="windowsrun.h" />
+    <ClInclude Include="linuxrun.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
