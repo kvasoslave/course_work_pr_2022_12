@@ -111,12 +111,12 @@ void read_Text(Text* text)
 
 void print_sentence(Sentence* sentence)
 {
-	for (int i = 0; i < sentence->length - 1; i++)
+	for (int i = 0; i < sentence->length; i++)
 	{
 		fputws(sentence->words[i], stdout);
 		putwchar(L' ');
 	}
-	fputws(sentence->words[sentence->length - 1], stdout);
+	putwchar(L'.');
 	putwchar(L'\n');
 }
 
