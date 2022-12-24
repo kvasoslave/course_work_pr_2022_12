@@ -86,7 +86,7 @@ int main()
 			fputws(L"Выберите предложение (введите его номер):\n", stdout);
 			print_enum_Text(txtdata);
 			int sent_number;
-			scanf("%d", &sent_number);
+			wscanf(L"%d", &sent_number);
 			getwchar();
 			if (sent_number < 0 || sent_number >= txtdata->length)
 			{
