@@ -70,15 +70,15 @@ int main()
 				getwchar();
 			if (danet != L'Н' && danet != L'N')
 			{
-			//	system(CLEAR_SCREEN);
+			system(CLEAR_SCREEN);
 				print_Text(txtdata);
 				fputws(L"Для продолжения нажмите Enter...\n", stdout);
 				getwchar();
-			//	system(CLEAR_SCREEN);
+			system(CLEAR_SCREEN);
 			}
 			else
 			{
-			//	system(CLEAR_SCREEN);
+			system(CLEAR_SCREEN);
 			}
 			break;
 		case L'3':
