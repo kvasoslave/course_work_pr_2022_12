@@ -1,23 +1,5 @@
 #include "texttools.h"
 
-int wcscasecmp(const wchar_t* s1, const wchar_t* s2)
-{
-	wchar_t c1, c2;
-
-	if (s1 == s2)
-		return 0;
-
-	do
-	{
-		c1 = towlower(*s1++);
-		c2 = towlower(*s2++);
-		if (c1 == L'\0')
-			break;
-	} while (c1 == c2);
-
-	return c1 - c2;
-}
-
 void init_Text(Text* text)
 {
 	text->sentences = NULL;
@@ -68,14 +50,19 @@ void read_Text(Text* text)
 			for (int i = 0; i < text->length; i++)
 			{
 				int samesent = 1;
-				for (int j = 0; j < newsentence->length; j++)
+				if (newsentence->length == text->sentences[i]->length)
 				{
-					if (wcscasecmp(text->sentences[i]->words[j], newsentence->words[j]))
+					for (int j = 0; j < newsentence->length; j++)
 					{
-						samesent = 0;
-						break;
+						if (wcscasecmp(text->sentences[i]->words[j], newsentence->words[j]))
+						{
+							samesent = 0;
+							break;
+						}
 					}
 				}
+				else
+					samesent = 0;
 				if (samesent)
 				{
 					isunique = 0;
